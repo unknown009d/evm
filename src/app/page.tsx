@@ -35,7 +35,7 @@ export default function Home() {
         <Button type="submit" variant={"outline"}>Login</Button>
         <div className="text-center flex flex-row justify-stretch items-center">
           <div className="inline-flex items-center justify-center w-full">
-            <hr className="w-full h-0.5 my-8 bg-gray-200 border-0 rounded dark:bg-gray-800" />
+            <hr className="w-full h-[0.5px] my-8 bg-gray-200 border-0 rounded dark:bg-gray-800" />
             <div className="absolute px-4 -translate-x-1/2 bg-background left-1/2">
               or
             </div>
