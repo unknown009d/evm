@@ -41,10 +41,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
+        {/* <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
           <Image src="/Google.webp" width={16} height={16} alt="Google"></Image>
           Login with Google
-        </Button>
+        </Button> */}
         <div className="flex items-center justify-center mt-5 space-x-2 text-center">
           <Checkbox id="terms" />
           <label
