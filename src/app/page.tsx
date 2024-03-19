@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox"
 import { useRouter } from 'next/navigation'
+import { ChevronRight } from "lucide-react"
 
 
 import Image from "next/image";
@@ -32,7 +33,10 @@ export default function Home() {
           maxLength={10}
           required
         />
-        <Button type="submit" variant={"outline"}>Login</Button>
+        <Button type="submit" variant={"outline"} className="flex flex-row justify-between items-center">
+          Continue
+          <ChevronRight />
+        </Button>
         <div className="text-center flex flex-row justify-stretch items-center">
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-full h-[0.5px] my-8 bg-gray-200 border-0 rounded dark:bg-gray-800" />
@@ -41,10 +45,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
+        <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
           <Image src="/Google.webp" width={16} height={16} alt="Google"></Image>
           Login with Google
-        </Button> */}
+        </Button>
         <div className="flex items-center justify-center mt-5 space-x-2 text-center">
           <Checkbox id="terms" />
           <label
