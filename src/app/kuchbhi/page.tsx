@@ -1,16 +1,19 @@
 "use client"
+import Head from 'next/head';
+// import LoginForm from '@/components/LoginForm';
+import { useRouter } from 'next/router';
 
-import { Input } from "@/components/ui/input"
-import { useState } from "react"
 
-export default function KuchBhi() {
-    const [text, setText] = useState("hello")
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setText(event.target.value)
-    }
-    return <div>
-        <Input type="text" placeholder="Enter some text" onChange={handleChange} />
-
-        <h1>{text}</h1>
-    </div>
+export default function Home() {
+    const router = useRouter();
+    const user = JSON.parse(router.query.user);
+  
+    // Now you can use the user object
+    console.log(user);
+  
+    return (
+        <>
+            <h1>Dashboard</h1>
+        </>
+    );
 }

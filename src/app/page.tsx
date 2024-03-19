@@ -5,20 +5,46 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox"
 import { useRouter } from 'next/navigation'
 import { ChevronRight } from "lucide-react"
-
+// import React from "react"
+import { UserAuth } from "@/components/context/AuthContext";
 
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({ auth }) {
+  // Firebase
+  const { user, googleSignIn, logOut } = UserAuth();
+
+  const handleSignIn = async () => {
+    try {
+      await googleSignIn();
+      console.log(user)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Firebase End
+  
   const router = useRouter()
 
   const handleGoogleLogin = () => {
-    console.log("Hello")
+    console.log("handle karchuka hun mc")
+    // console.log("Hello")
   }
   const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     router.push('/auth')
   }
+
   return (
     <div className="">
       <h2 className="text-3xl font-bold mb-5">Welcome to Event Management Application</h2>
@@ -45,7 +71,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
+        <Button type="button" onClick={handleSignIn} className="flex flex-row gap-4">
           <Image src="/Google.webp" width={16} height={16} alt="Google"></Image>
           Login with Google
         </Button>
