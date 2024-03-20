@@ -7,18 +7,21 @@ import { useRouter } from 'next/navigation'
 import { ChevronRight } from "lucide-react"
 // import React from "react"
 import { UserAuth } from "@/components/context/AuthContext";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
 export default function Home({ auth }) {
   // Firebase
   const { user, googleSignIn, logOut } = UserAuth();
+  let [usernam, setUsernam] = useState(null);
+
 
   const handleSignIn = async () => {
     try {
       await googleSignIn();
-      console.log(user)
-      
+      console.log(user);
+      setUsernam(`Welcome, ${user.displayName} (${user.email})`);
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +36,7 @@ export default function Home({ auth }) {
   };
 
   // Firebase End
-  
+
   const router = useRouter()
 
   const handleGoogleLogin = () => {
@@ -85,6 +88,9 @@ export default function Home({ auth }) {
           </label>
         </div>
       </form>
+      <article className="font-bold text-lg mt-10">
+        <h3>{usernam}</h3>
+      </article>
     </div>
   );
 }
