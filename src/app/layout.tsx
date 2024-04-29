@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthContextProvider } from "../components/context/AuthContext";
 
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

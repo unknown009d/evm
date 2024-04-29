@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
+
 export default function Home({ auth }) {
   // Firebase
   const { user, googleSignIn, logOut } = UserAuth();
@@ -42,6 +43,7 @@ export default function Home({ auth }) {
   const handleGoogleLogin = () => {
     console.log("handle karchuka hun mc")
     // console.log("Hello")
+    console.log("Call toh hoche")
   }
   const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,7 +76,7 @@ export default function Home({ auth }) {
             </div>
           </div>
         </div>
-        <Button type="button" onClick={handleSignIn} className="flex flex-row gap-4">
+        {/* <Button type="button" onClick={handleGoogleLogin} className="flex flex-row gap-4">
           <Image src="/Google.webp" width={16} height={16} alt="Google"></Image>
           Login with Google
         </Button>
